@@ -28,4 +28,4 @@ class ElementUtil{
 
 }
 
-module.exports = new ElementUtil();
+export default new ElementUtil();

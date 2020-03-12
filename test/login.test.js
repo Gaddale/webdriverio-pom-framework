@@ -1,21 +1,13 @@
-const loginPage = require('../pages/login.page')
+import loginPage from '../pages/LoginPage'
+import { expect } from 'chai'
 const configData = require('../config')
 const constants = require('../constants')
 
-describe('Login page feature test', function(){
+describe('Login page feature test', ()=>{
 
-    it('Verify login page title', function(){
-        browser.url('/');
-        browser.maximizeWindow();
-        const title = loginPage.getPageTitle();
-        assert.equal(title,constants.LOGIN_PAGE_TITLE, 'Title not found')
-    })
-
-    it('Verify Sign up link',function(){
-        assert.equal(true, loginPage.isSignUpLinkExist());
-    })
-
-    it('Verify Login',function(){
-        loginPage.doLogin(configData.username, configData.password);
+    it('Verify Login',()=>{
+        loginPage.open('/');
+        loginPage.doLogin(configData.username,configData.password)
+        expect(loginPage.errorMessage.getText()).to.contains(constants.ERROR_MESSAGE)
     })
 })

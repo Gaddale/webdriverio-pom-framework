@@ -1,5 +1,5 @@
 module.exports = {
 
-    LOGIN_PAGE_TITLE: 'HubSpot Login'
+    ERROR_MESSAGE:`Login and/or password are wrong.`
     
 }
